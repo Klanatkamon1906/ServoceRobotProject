@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Kbot">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="3.193E-18 0.61547 0.00037174" rpy="0 0 0" />
+      <mass
+        value="3355.6" />
+      <inertia
+        ixx="2126.3" ixy="-2.8216E-14" ixz="2.3275E-15"
+        iyy="241.78" iyz="0.5451" izz="2120.4" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Kbot/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.64706 0.61961 0.58824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Kbot/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="ArmOne">
+    <inertial>
+      <origin
+        xyz="-1.254E-17 0.2 5.062E-18" rpy="0 0 0" />
+      <mass
+        value="20.197" />
+      <inertia
+        ixx="0.45465" ixy="-4.4635E-19" ixz="1.4988E-18"
+        iyy="0.22892" iyz="-2.6593E-18" izz="0.38173" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Kbot/meshes/ArmOne.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Kbot/meshes/ArmOne.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="P1_joint"
+    type="prismatic">
+    <origin
+      xyz="0 0 0.7" rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="ArmOne" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="1.2"
+      effort="100"
+      velocity="0.3" />
+  </joint>
+  <link
+    name="ArmTwo">
+    <inertial>
+      <origin
+        xyz="6.0919E-17 0 2.8572E-17" rpy="0 0 0" />
+      <mass
+        value="6.7355" />
+      <inertia
+        ixx="0.40294" ixy="2.8995E-19" ixz="-3.6597E-18"
+        iyy="0.40603" iyz="-1.8794E-20" izz="0.019804" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Kbot/meshes/ArmTwo.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Kbot/meshes/ArmTwo.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+  name="P2_joint"
+  type="prismatic">
+  <origin
+    xyz="0 0.15 -0.25" rpy="0 0 0" />
+  <parent
+    link="ArmOne" />
+  <child
+    link="ArmTwo" />
+  <axis
+    xyz="0 0 1" />
+  <limit
+    lower="0.0"
+    upper="0.5"
+    effort="100"
+    velocity="0.3" />
+</joint>
+  <link
+    name="ArmThree">
+    <inertial>
+      <origin
+        xyz="2.7824E-17 0.0035998 0.19157" rpy="0 0 0" />
+      <mass
+        value="11.802" />
+      <inertia
+        ixx="0.99207" ixy="1.7452E-18" ixz="1.4362E-16"
+        iyy="1.0485" iyz="-0.010342" izz="0.09082" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Kbot/meshes/ArmThree.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Kbot/meshes/ArmThree.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="P3_joint"
+    type="prismatic">
+    <origin
+      xyz="0 0.1 0" rpy="0 0 0" />
+    <parent
+      link="ArmTwo" />
+    <child
+      link="ArmThree" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0.0"
+      upper="0.5"
+      effort="100"
+      velocity="0.2" />
+  </joint>
+  <link
+    name="Sen_Camera">
+    <inertial>
+      <origin
+        xyz="0 0 0.0036315" rpy="0 1.57075 0" />
+      <mass
+        value="0.12438" />
+      <inertia
+        ixx="5.5707E-05" ixy="-2.1049E-21" ixz="8.709E-22"
+        iyy="5.2822E-05" iyz="-3.8203E-21" izz="4.1476E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0" rpy="0 1.57075 0" />
+      <geometry>
+        <mesh
+          filename="package://Kbot/meshes/Sen_Camera.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.50196 0.50196 0.50196 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0" rpy="0 1.57075 0" />
+      <geometry>
+        <mesh
+          filename="package://Kbot/meshes/Sen_Camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Cam_joint"
+    type="fixed">
+    <origin
+      xyz="0 0.115 0.435" rpy="0 -1.57075 0" />
+    <parent
+      link="ArmThree" />
+    <child
+      link="Sen_Camera" />
+    <axis
+      xyz="1 0 0" />
+    <!-- <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="100"
+      velocity="1" /> -->
+  </joint>
+  <link
+    name="LeftJaw">
+    <inertial>
+      <origin
+        xyz="0.045241 1.1102E-16 0.10562"
+        rpy="0 0 0" />
+      <mass
+        value="1.8096" />
+      <inertia
+        ixx="0.0082504"
+        ixy="-5.8796E-20"
+        ixz="0.00082345"
+        iyy="0.0080415"
+        iyz="-7.2256E-20"
+        izz="0.0024053" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Kbot/meshes/LeftJaw.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.25098 0.25098 0.25098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Kbot/meshes/LeftJaw.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="P4_joint"
+    type="prismatic">
+    <origin
+      xyz="0.1 0 0.45"
+      rpy="0 0 0" />
+    <parent
+      link="ArmThree" />
+    <child
+      link="LeftJaw" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-0.1"
+      upper="0"
+      effort="100"
+      velocity="0.05" />
+  </joint>
+  <link
+    name="RightJaw">
+    <inertial>
+      <origin
+        xyz="0.045241 -1.1102E-16 0.10562"
+        rpy="0 0 0" />
+      <mass
+        value="1.8096" />
+      <inertia
+        ixx="0.0082504"
+        ixy="-3.416E-20"
+        ixz="0.00082345"
+        iyy="0.0080415"
+        iyz="-1.2064E-19"
+        izz="0.0024053" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Kbot/meshes/RightJaw.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.25098 0.25098 0.25098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Kbot/meshes/RightJaw.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="P5_joint"
+    type="prismatic">
+    <origin
+      xyz="-0.1 0 0.45"
+      rpy="0 0 3.1416" />
+    <parent
+      link="ArmThree" />
+    <child
+      link="RightJaw" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-0.1"
+      upper="0"
+      effort="100"
+      velocity="0.05" />
+  </joint>
+  <link
+    name="Sen_Lidar">
+    <inertial>
+      <origin
+        xyz="-1.0408E-17 0.025 -8.3267E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.39719" />
+      <inertia
+        ixx="0.00032785"
+        ixy="-7.1325E-22"
+        ixz="0"
+        iyy="0.00049265"
+        iyz="-5.5768E-21"
+        izz="0.00032785" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Kbot/meshes/Sen_Lidar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.1098 0.1098 0.1098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Kbot/meshes/Sen_Lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Li_joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.25 0.21"
+      rpy="1.5708 0 -0.12415" />
+    <parent
+      link="base_link" />
+    <child
+      link="Sen_Lidar" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="LeftWheel">
+    <inertial>
+      <origin
+        xyz="0.05 -9.5077E-17 -9.1528E-18"
+        rpy="0 0 0" />
+      <mass
+        value="20.424" />
+      <inertia
+        ixx="1.048"
+        ixy="5.006E-19"
+        ixz="-1.7737E-18"
+        iyy="0.5409"
+        iyz="-3.7852E-16"
+        izz="0.5409" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Kbot/meshes/LeftWheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.50196 0.50196 0.50196 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Kbot/meshes/LeftWheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="C1_joint"
+    type="continuous">
+    <origin
+      xyz="0.41 0 0"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="LeftWheel" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      effort="100"
+      velocity="10" />
+    <dynamics
+      damping="0.5"
+      friction="10.8" />
+  </joint>
+  <link
+    name="RightWheel">
+    <inertial>
+      <origin
+        xyz="-0.05 -9.3644E-17 -9.874E-18"
+        rpy="0 0 0" />
+      <mass
+        value="20.424" />
+      <inertia
+        ixx="1.048"
+        ixy="3.764E-19"
+        ixz="1.9643E-18"
+        iyy="0.5409"
+        iyz="-3.7771E-16"
+        izz="0.5409" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Kbot/meshes/RightWheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.50196 0.50196 0.50196 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Kbot/meshes/RightWheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="C2_joint"
+    type="continuous">
+    <origin
+      xyz="-0.41 0 0"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="RightWheel" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      effort="100"
+      velocity="10" />
+    <dynamics
+      damping="0.5"
+      friction="10.8" />
+  </joint>
+  <link
+    name="FrontWheel">
+    <inertial>
+      <origin
+        xyz="-2.2646E-35 -0.083438 5.5511E-17"
+        rpy="0 0 0" />
+      <mass
+        value="50000.293" />
+      <inertia
+        ixx="0.0095773"
+        ixy="8.2033E-36"
+        ixz="3.1462E-36"
+        iyy="0.0046446"
+        iyz="3.3599E-20"
+        izz="0.0095773" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Kbot/meshes/FrontWheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.64706 0.61961 0.58824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Kbot/meshes/FrontWheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="F1_joint"
+    type="fixed">
+    <origin
+      xyz="0 -0.45 -0.15"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="FrontWheel" />
+    <axis
+      xyz="0 0 0" />
+    <dynamics
+      friction="0.1" />
+  </joint>
+  <link
+    name="BackWheel">
+    <inertial>
+      <origin
+        xyz="-2.2646E-35 -0.083438 0"
+        rpy="0 0 0" />
+      <mass
+        value="5.293" />
+      <inertia
+        ixx="0.0095773"
+        ixy="8.2033E-36"
+        ixz="3.1462E-36"
+        iyy="0.0046446"
+        iyz="3.3599E-20"
+        izz="0.0095773" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Kbot/meshes/BackWheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.64706 0.61961 0.58824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Kbot/meshes/BackWheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="F2_joint"
+    type="fixed">
+    <origin
+      xyz="0 0.45 -0.15"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="BackWheel" />
+    <axis
+      xyz="0 0 0" />
+    <dynamics
+      friction="0.1" />
+  </joint>
+
+  <!-- Gazebo plugin for ROS Control -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+      <alwaysOn>false</alwaysOn>
+      <legacyMode>false</legacyMode>
+      <updateRate>20</updateRate>
+      <leftJoint>LeftWheel</leftJoint>
+      <rightJoint>RightWheel</rightJoint>
+      <wheelSeparation>0.86</wheelSeparation>
+      <wheelDiameter>0.6</wheelDiameter>
+      <torque>20</torque>
+      <commandTopic>/cmd_vel</commandTopic>
+      <odometryTopic>/odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>base_link</robotBaseFrame>
+      <publishWheelTF>false</publishWheelTF>
+      <publishWheelJointState>false</publishWheelJointState>
+      <rosDebugLevel>na</rosDebugLevel>
+      <wheelAcceleration>0</wheelAcceleration>
+      <wheelTorque>5</wheelTorque>
+      <odometrySource>world</odometrySource>
+      <publishTf>1</publishTf>
+      <publishOdomTF>true</publishOdomTF>
+    </plugin>
+  </gazebo>
+  
+  <!-- camera -->
+  <gazebo reference="Sen_Camera">
+    <material>Gazebo/Yellow</material>
+    <sensor type="camera" name="camera1">
+        <update_rate>30.0</update_rate>
+        <camera name ="head">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 1.570575"/>
+            <horizontal_fov>1.3962634</horizontal_fov>
+            <image>
+                <width>400</width>
+                <height>400</height>
+                <format>R8G8B8</format>
+            </image>
+            <clip>
+                <near>0.1</near>
+                <far>300</far>
+            </clip>
+        </camera>
+        <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+            <alwaysOn>true</alwaysOn>
+            <updateRate>0.0</updateRate>
+            <cameraName>Kbot/camera1</cameraName>
+            <imageTopicName>image_raw</imageTopicName>
+            <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+            <frameName>Sen_Camera</frameName>
+            <hackBaseline>0.07</hackBaseline>
+            <distortionK1>0.0</distortionK1>
+            <distortionK2>0.0</distortionK2>
+            <distortionK3>0.0</distortionK3>
+            <distortionT1>0.0</distortionT1>
+            <distortionT2>0.0</distortionT2>
+        </plugin>
+    </sensor>
+</gazebo>
+  
+</robot>
