@@ -16,7 +16,10 @@ Visualize in Rviz
 ~~~~~
 $ roslaunch Kbot rviz.launch
 ~~~~~
-* การรันไฟล์ใน Rviz จะรันตรงๆไม่ได้ ต้องประกาศเฟรมให้กับโมเดลว่าใช้เฟรมไหนเป็นเฟรมอ้างอิง แล้วค่อยทำการเพิ่ม robot modelgเข้ามา
+* การรันไฟล์ใน Rviz จะรันตรงๆไม่ได้ ต้องประกาศเฟรมให้กับโมเดลว่าใช้เฟรมไหนเป็นเฟรมอ้างอิง แล้วค่อยทำการเพิ่ม robot model เข้ามา
+~~~~~
+$ rosrun tf static_transform_publisher 0 0 0 0 0 0 map base_link 50
+~~~~~
 
 Simulation in gazebo
 ~~~~~
